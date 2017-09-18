@@ -61,6 +61,8 @@ parent or sibling element. This callback is called with the corresponding
 Remove all event handlers and discontinue triggering focus enter/exit
 callbacks.
 
+## License
+
 MIT
 
 [build-badge]: https://img.shields.io/travis/jimf/focus-enter-exit/master.svg
