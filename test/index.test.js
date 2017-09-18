@@ -86,27 +86,45 @@ describe('Focus enter/exit', function () {
       expect(onFocusEnter).not.toHaveBeenCalled()
     })
 
-    test.skip('NOT triggered when target already has focus', function () {
-      // Skipping. There is no way to support this without tracking state, but
-      // so has it's own set of problems.
+    test('NOT triggered when target already has focus', function () {
       setupDom()
       var targetEl = target()
+      var child = child1()
       var onFocusEnter = jest.fn()
       targetEl.focus()
       focusEnterExit(targetEl, { onFocusEnter: onFocusEnter })
-      focusElements([child1()])
+      var ev = new window.FocusEvent('focusout', {
+        bubbles: true,
+        relatedTarget: child
+      })
+      targetEl.dispatchEvent(ev)
+      ev = new window.FocusEvent('focusin', {
+        bubbles: true,
+        relatedTarget: targetEl
+      })
+      child.dispatchEvent(ev)
+      child.focus()
       expect(onFocusEnter).not.toHaveBeenCalled()
     })
 
-    test.skip('NOT triggered when descendent already has focus', function () {
-      // Skipping. There is no way to support this without tracking state, but
-      // so has it's own set of problems.
+    test('NOT triggered when descendent already has focus', function () {
       setupDom()
       var targetEl = target()
+      var child = child1()
       var onFocusEnter = jest.fn()
-      child1().focus()
+      child.focus()
       focusEnterExit(targetEl, { onFocusEnter: onFocusEnter })
-      focusElements([targetEl])
+      var ev = new window.FocusEvent('focusout', {
+        bubbles: true,
+        relatedTarget: targetEl
+      })
+      child.dispatchEvent(ev)
+      ev = new window.FocusEvent('focusin', {
+        bubbles: true,
+        relatedTarget: child
+      })
+      targetEl.dispatchEvent(ev)
+      targetEl.focus()
       expect(onFocusEnter).not.toHaveBeenCalled()
     })
 
