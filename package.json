@@ -1,0 +1,36 @@
+{
+  "name": "focus-enter-exit",
+  "version": "1.0.0",
+  "description": "Focus enter/exit events for a DOM element and its descendents",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "pretest": "npm run lint",
+    "test": "jest --coverage",
+    "tdd": "npm test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jimf/focus-enter-exit"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "focus",
+    "blur",
+    "dom",
+    "events"
+  ],
+  "author": "Jim Fitzpatrick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jimf/focus-enter-exit/issues"
+  },
+  "homepage": "https://github.com/jimf/focus-enter-exit",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^21.1.0",
+    "standard": "^10.0.3"
+  }
+}
