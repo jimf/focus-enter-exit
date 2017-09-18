@@ -4,6 +4,7 @@
   "description": "Focus enter/exit events for a DOM element and its descendents",
   "main": "index.js",
   "scripts": {
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "lint": "standard",
     "pretest": "npm run lint",
     "test": "jest --coverage",
@@ -30,6 +31,7 @@
   "homepage": "https://github.com/jimf/focus-enter-exit",
   "dependencies": {},
   "devDependencies": {
+    "coveralls": "^2.13.1",
     "jest": "^21.1.0",
     "standard": "^10.0.3"
   }
